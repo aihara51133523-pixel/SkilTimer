@@ -16,4 +16,13 @@ Windows用のシンプルなスキル効果時間タイマーです。
 
 キーをゲームに渡したまま監視するWindowsのキーボードフックを使います。ゲーム固有の入力方式やアンチチートによって反応しない場合があります。排他フルスクリーンでは表示できない場合があるため、ボーダーレスウィンドウ表示を使用してください。ゲーム実機での互換性は未検証です。
 
-開発: `dotnet build` / 配布用出力: `dotnet publish -c Release -o release` / 時間計算検証: `BuffTimer.exe --self-test`（終了コード0なら成功）。
+## Visual Studio 2022での開発
+
+Visual Studio 2022 17.12以降と「.NET デスクトップ開発」ワークロード、.NET 9 SDKを用意してください。
+.NET 9とVisual Studioの対応バージョンは[Microsoftの対応表](https://learn.microsoft.com/dotnet/core/porting/versioning-sdk-msbuild-vs)を参照してください。
+
+1. `SkilTimer.sln` をVisual Studio 2022で開きます。
+2. 構成を `Debug`、プラットフォームを `Any CPU` にします。
+3. `F5` でビルドしてデバッグ実行します。
+
+コマンドラインでの開発: `dotnet build SkilTimer.sln` / 配布用出力: `dotnet publish BuffTimer.csproj -c Release -o release` / 時間計算検証: `BuffTimer.exe --self-test`（終了コード0なら成功）。
