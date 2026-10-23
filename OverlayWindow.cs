@@ -35,12 +35,12 @@ internal sealed class OverlayWindow : Window
             dc.DrawRectangle(Brushes.Transparent, null, new Rect(RenderSize));
             var text = new FormattedText(Value, CultureInfo.InvariantCulture, FlowDirection.LeftToRight,
                 new Typeface(new FontFamily("Segoe UI"), FontStyles.Normal, FontWeights.Bold, FontStretches.Normal),
-                72, Brushes.LightBlue, VisualTreeHelper.GetDpi(this).PixelsPerDip);
+                72, Brushes.White, VisualTreeHelper.GetDpi(this).PixelsPerDip);
             if (text.Width > ActualWidth - 12)
                 text.SetFontSize(72 * (ActualWidth - 12) / text.Width);
             var shape = text.BuildGeometry(new Point((ActualWidth - text.Width) / 2, (ActualHeight - text.Height) / 2));
-            dc.DrawGeometry(Brushes.LightBlue, new Pen(Expired ? Brushes.Red : Brushes.Black, 5) { LineJoin = PenLineJoin.Round }, shape);
-            dc.DrawGeometry(Brushes.LightBlue, null, shape);
+            dc.DrawGeometry(Brushes.White, new Pen(Expired ? Brushes.Red : Brushes.Black, 5) { LineJoin = PenLineJoin.Round }, shape);
+            dc.DrawGeometry(Brushes.White, null, shape);
         }
     }
 }
