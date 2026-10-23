@@ -12,7 +12,7 @@ internal sealed class MainWindow : Window
 {
     private readonly TextBox hotkeyBox = new() { IsReadOnly = true, Height = 34, VerticalContentAlignment = VerticalAlignment.Center };
     private readonly TextBox secondsBox = new() { Height = 34, VerticalContentAlignment = VerticalAlignment.Center };
-    private readonly Button toggle = new() { Content = "動作開始", Height = 42, Margin = new Thickness(0, 22, 0, 0) };
+    private readonly Button toggle = new() { Content = "計測スタート", Height = 42, Margin = new Thickness(0, 22, 0, 0) };
     private readonly Countdown countdown = new();
     private readonly OverlayWindow overlay;
     private readonly KeyboardHook? hook;
@@ -72,7 +72,7 @@ internal sealed class MainWindow : Window
             }
             enabled = !enabled;
             hotkeyBox.IsEnabled = secondsBox.IsEnabled = !enabled;
-            toggle.Content = enabled ? "動作終了" : "動作開始";
+            toggle.Content = enabled ? "動作終了" : "計測スタート";
             countdown.Reset(settings.Seconds); Render();
         };
         timer.Tick += (_, _) => { if (countdown.Tick()) { try { sound.Play(); } catch { SystemSounds.Exclamation.Play(); } } Render(); };
